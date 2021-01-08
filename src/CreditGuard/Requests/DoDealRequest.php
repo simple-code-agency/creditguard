@@ -16,6 +16,30 @@ class DoDealRequest extends AbstractRequest
     }
 
     /**
+     * <b>CG Type:</b> AlphaNumeric
+     * <br>
+     * <b>CG Value:</b> Phone | Magnetic
+     * <br>
+     * <b>CG Value Mandatory:</b> <font color="red">Yes</font>
+     * <br>
+     * All card non present
+     * transactions and e-commerce
+     * must be marked as ‘Phone’
+     * Please see XML API for further
+     * details
+     *
+     * @param string $value
+     *
+     * @return static
+     * @see TransactionCode
+     *
+     */
+    public function setTransactionCode(string $value)
+    {
+        return $this->set('transactionCode', $value);
+    }
+
+    /**
      * Terminal number as
      * defined for the
      * merchant at CG
@@ -24,7 +48,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getTerminalNumber() { return $this->get('terminalNumber'); }
+    public function getTerminalNumber()
+    {
+        return $this->get('terminalNumber');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric
@@ -43,8 +70,35 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setTerminalNumber(string $value) { return $this->set('terminalNumber', $value); }
+    public function setTerminalNumber(string $value)
+    {
+        return $this->set('terminalNumber', $value);
+    }
 
+    public function setRecurringTotalNo(string $value)
+    {
+        return $this->setChild('ashraitEmvData', 'recurringTotalNo', $value);
+    }
+
+    public function setRecurringTotalSum(string $value)
+    {
+        return $this->setChild('ashraitEmvData', 'recurringTotalSum', $value);
+    }
+
+    public function setRecurringNo(string $value)
+    {
+        return $this->setChild('ashraitEmvData', 'recurringNo', $value);
+    }
+
+    public function setRecurringFrequency(string $value)
+    {
+        return $this->setChild('ashraitEmvData', 'recurringFrequency', $value);
+    }
+
+    public function setAuthNumber(string $value)
+    {
+        return $this->set('authNumber', $value);
+    }
 
     /**
      * Card token in
@@ -54,7 +108,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getCardId() { return $this->get('cardId'); }
+    public function getCardId()
+    {
+        return $this->get('cardId');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric(19)
@@ -72,8 +129,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setCardId(string $value) { return $this->set('cardId', $value); }
-
+    public function setCardId(string $value)
+    {
+        return $this->set('cardId', $value);
+    }
 
     /**
      * Card number in
@@ -83,7 +142,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getCardNo() { return $this->get('cardNo'); }
+    public function getCardNo()
+    {
+        return $this->get('cardNo');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric(19)
@@ -101,8 +163,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setCardNo(string $value) { return $this->set('cardNo', $value); }
-
+    public function setCardNo(string $value)
+    {
+        return $this->set('cardNo', $value);
+    }
 
     /**
      * The total amount of
@@ -112,7 +176,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return int
      */
-    public function getTotal() { return (int)$this->get('total'); }
+    public function getTotal()
+    {
+        return (int)$this->get('total');
+    }
 
     /**
      * <b>CG Type:</b> Numeric(8)
@@ -130,8 +197,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setTotal(int $value) { return $this->set('total', $value); }
-
+    public function setTotal(int $value)
+    {
+        return $this->set('total', $value);
+    }
 
     /**
      * Card holder is charged
@@ -139,7 +208,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getTransactionType() { return $this->get('transactionType'); }
+    public function getTransactionType()
+    {
+        return $this->get('transactionType');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric
@@ -151,21 +223,26 @@ class DoDealRequest extends AbstractRequest
      * Card holder is charged
      * Or card holder is credited.
      *
-     * @see TransactionType
-     *
      * @param string $value
      *
      * @return static
+     * @see TransactionType
+     *
      */
-    public function setTransactionType(string $value) { return $this->set('transactionType', $value); }
-
+    public function setTransactionType(string $value)
+    {
+        return $this->set('transactionType', $value);
+    }
 
     /**
      * Credit type
      *
      * @return string
      */
-    public function getCreditType() { return $this->get('creditType'); }
+    public function getCreditType()
+    {
+        return $this->get('creditType');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric
@@ -182,14 +259,16 @@ class DoDealRequest extends AbstractRequest
      * <br>
      * Credit type
      *
-     * @see CreditType
-     *
      * @param string $value
      *
      * @return static
+     * @see CreditType
+     *
      */
-    public function setCreditType(string $value) { return $this->set('creditType', $value); }
-
+    public function setCreditType(string $value)
+    {
+        return $this->set('creditType', $value);
+    }
 
     /**
      * Currency code,
@@ -197,7 +276,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getCurrency() { return $this->get('currency'); }
+    public function getCurrency()
+    {
+        return $this->get('currency');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric(3)
@@ -209,14 +291,16 @@ class DoDealRequest extends AbstractRequest
      * Currency code,
      * According to ISO-4217
      *
+     * @param string $value
+     *
+     * @return static
      * @see Currency
      *
-     * @param string $value
-     *
-     * @return static
      */
-    public function setCurrency(string $value) { return $this->set('currency', $value); }
-
+    public function setCurrency(string $value)
+    {
+        return $this->set('currency', $value);
+    }
 
     /**
      * All card non present
@@ -227,36 +311,20 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getTransactionCode() { return $this->get('transactionCode'); }
-
-    /**
-     * <b>CG Type:</b> AlphaNumeric
-     * <br>
-     * <b>CG Value:</b> Phone | Magnetic
-     * <br>
-     * <b>CG Value Mandatory:</b> <font color="red">Yes</font>
-     * <br>
-     * All card non present
-     * transactions and e-commerce
-     * must be marked as ‘Phone’
-     * Please see XML API for further
-     * details
-     *
-     * @see TransactionCode
-     *
-     * @param string $value
-     *
-     * @return static
-     */
-    public function setTransactionCode(string $value) { return $this->set('transactionCode', $value); }
-
+    public function getTransactionCode()
+    {
+        return $this->get('transactionCode');
+    }
 
     /**
      * Amount of first payment
      *
      * @return string
      */
-    public function getFirstPayment() { return $this->get('firstPayment'); }
+    public function getFirstPayment()
+    {
+        return $this->get('firstPayment');
+    }
 
     /**
      * <b>CG Type:</b> Numeric(20)
@@ -271,7 +339,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setFirstPayment(string $value) { return $this->set('firstPayment', $value); }
+    public function setFirstPayment(string $value)
+    {
+        return $this->set('firstPayment', $value);
+    }
 
 
     /**
@@ -280,7 +351,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getPeriodicalPayment() { return $this->get('periodicalPayment'); }
+    public function getPeriodicalPayment()
+    {
+        return $this->get('periodicalPayment');
+    }
 
     /**
      * <b>CG Type:</b> Numeric(20)
@@ -296,7 +370,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setPeriodicalPayment(string $value) { return $this->set('periodicalPayment', $value); }
+    public function setPeriodicalPayment(string $value)
+    {
+        return $this->set('periodicalPayment', $value);
+    }
 
 
     /**
@@ -313,7 +390,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getNumberOfPayments() { return $this->get('numberOfPayments'); }
+    public function getNumberOfPayments()
+    {
+        return $this->get('numberOfPayments');
+    }
 
     /**
      * <b>CG Type:</b> Numeric(2)
@@ -337,7 +417,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setNumberOfPayments(string $value) { return $this->set('numberOfPayments', $value); }
+    public function setNumberOfPayments(string $value)
+    {
+        return $this->set('numberOfPayments', $value);
+    }
 
 
     /**
@@ -346,7 +429,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getValidation() { return $this->get('validation'); }
+    public function getValidation()
+    {
+        return $this->get('validation');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric
@@ -362,7 +448,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setValidation(string $value) { return $this->set('validation', $value); }
+    public function setValidation(string $value)
+    {
+        return $this->set('validation', $value);
+    }
 
 
     /**
@@ -374,7 +463,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getMainTerminalNumber() { return $this->get('mainTerminalNumber'); }
+    public function getMainTerminalNumber()
+    {
+        return $this->get('mainTerminalNumber');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric
@@ -393,7 +485,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setMainTerminalNumber(string $value) { return $this->set('mainTerminalNumber', $value); }
+    public function setMainTerminalNumber(string $value)
+    {
+        return $this->set('mainTerminalNumber', $value);
+    }
 
 
     /**
@@ -402,7 +497,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getCardExpiration() { return $this->get('cardExpiration'); }
+    public function getCardExpiration()
+    {
+        return $this->get('cardExpiration');
+    }
 
     /**
      * <b>CG Type:</b> Date (4)
@@ -418,7 +516,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setCardExpiration(string $value) { return $this->set('cardExpiration', $value); }
+    public function setCardExpiration(string $value)
+    {
+        return $this->set('cardExpiration', $value);
+    }
 
 
     /**
@@ -427,7 +528,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getCvv() { return $this->get('cvv'); }
+    public function getCvv()
+    {
+        return $this->get('cvv');
+    }
 
     /**
      * <b>CG Type:</b> Numeric (1-4)
@@ -449,7 +553,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setCvv(string $value) { return $this->set('cvv', $value); }
+    public function setCvv(string $value)
+    {
+        return $this->set('cvv', $value);
+    }
 
 
     /**
@@ -459,7 +566,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUser() { return $this->get('user'); }
+    public function getUser()
+    {
+        return $this->get('user');
+    }
 
     /**
      * <b>CG Type:</b> String (19)
@@ -475,7 +585,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setUser(string $value) { return $this->set('user', $value); }
+    public function setUser(string $value)
+    {
+        return $this->set('user', $value);
+    }
 
 
     /**
@@ -483,7 +596,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getId() { return $this->get('id'); }
+    public function getId()
+    {
+        return $this->get('id');
+    }
 
     /**
      * <b>CG Type:</b> Numeric (4-10)
@@ -498,7 +614,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setId(string $value) { return $this->set('id', $value); }
+    public function setId(string $value)
+    {
+        return $this->set('id', $value);
+    }
 
 
     /**
@@ -506,7 +625,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getEmail() { return $this->get('email'); }
+    public function getEmail()
+    {
+        return $this->get('email');
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (32)
@@ -521,7 +643,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setEmail(string $value) { return $this->set('email', $value); }
+    public function setEmail(string $value)
+    {
+        return $this->set('email', $value);
+    }
 
 
     /**
@@ -529,7 +654,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getClientIp() { return $this->get('clientIP'); }
+    public function getClientIp()
+    {
+        return $this->get('clientIP');
+    }
 
     /**
      * <b>CG Type:</b> Unknown (ipv4 assumed)
@@ -544,7 +672,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return static
      */
-    public function setClientIp(string $value) { return $this->set('clientIP', $value); }
+    public function setClientIp(string $value)
+    {
+        return $this->set('clientIP', $value);
+    }
 
 
     /**
@@ -552,7 +683,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData1() { return $this->commandXml->customerData->userData1; }
+    public function getUserData1()
+    {
+        return $this->commandXml->customerData->userData1;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -579,7 +713,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData2() { return $this->commandXml->customerData->userData2; }
+    public function getUserData2()
+    {
+        return $this->commandXml->customerData->userData2;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -606,7 +743,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData3() { return $this->commandXml->customerData->userData3; }
+    public function getUserData3()
+    {
+        return $this->commandXml->customerData->userData3;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -633,7 +773,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData4() { return $this->commandXml->customerData->userData4; }
+    public function getUserData4()
+    {
+        return $this->commandXml->customerData->userData4;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -660,7 +803,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData5() { return $this->commandXml->customerData->userData5; }
+    public function getUserData5()
+    {
+        return $this->commandXml->customerData->userData5;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -687,7 +833,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData6() { return $this->commandXml->customerData->userData6; }
+    public function getUserData6()
+    {
+        return $this->commandXml->customerData->userData6;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -714,7 +863,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData7() { return $this->commandXml->customerData->userData7; }
+    public function getUserData7()
+    {
+        return $this->commandXml->customerData->userData7;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -741,7 +893,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData8() { return $this->commandXml->customerData->userData8; }
+    public function getUserData8()
+    {
+        return $this->commandXml->customerData->userData8;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -768,7 +923,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData9() { return $this->commandXml->customerData->userData9; }
+    public function getUserData9()
+    {
+        return $this->commandXml->customerData->userData9;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
@@ -795,7 +953,10 @@ class DoDealRequest extends AbstractRequest
      *
      * @return string
      */
-    public function getUserData10() { return $this->commandXml->customerData->userData10; }
+    public function getUserData10()
+    {
+        return $this->commandXml->customerData->userData10;
+    }
 
     /**
      * <b>CG Type:</b> AlphaNumeric (256)
